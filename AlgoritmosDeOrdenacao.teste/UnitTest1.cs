@@ -9,7 +9,7 @@ namespace AlgoritmosDeOrdenacao.teste
         {
             //Arrenge
             List<int> list = new List<int> {3,5,4,1,8,6};
-            var selectionSort = new SelectionSort();
+            var selectionSort = new Ordenadores();
 
             //act
             var lista = selectionSort.Selection_Sorte(list);
