@@ -12,7 +12,7 @@ namespace AlgoritmosDeOrdenacao.teste
             var selectionSort = new Ordenadores();
 
             //act
-            var lista = selectionSort.Selection_Sorte(list);
+            var lista = selectionSort.OrdenarPorSelecao(list);
 
             //Assert
             Assert.Equal(list, lista);

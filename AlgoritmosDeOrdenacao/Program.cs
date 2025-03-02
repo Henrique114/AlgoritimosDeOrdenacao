@@ -7,13 +7,16 @@ namespace AlgoritmosDeOrdenacao
     {
         static void Main(string[] args)
         {
-            Ordenadores ordenar = new();
-            ListasParaTeste listaTest = new();
+            Ordenadores ordenadores = new();
+            ListasParaTeste listas_para_testes = new();
 
-            var listaADesordenados = listaTest.Desordenados_Aleatorios();
-            
+            var listaADesordenados = listas_para_testes.DesordenadosAleatorios();
             var contadorA = listaADesordenados.Count;
 
+            var lista_simples = listas_para_testes.desordenados;
+            var contadorS = lista_simples.Count;
+
+            Console.WriteLine("--Lista Aleatoria--");
             Console.Write("Lista Desordenada:");
 
             for (int i = 0; i < contadorA; i++)
@@ -21,7 +24,7 @@ namespace AlgoritmosDeOrdenacao
                 Console.Write(" " + listaADesordenados[i] + ",");
             }
 
-            var listaAleatorios = ordenar.Selection_Sorte(listaADesordenados);
+            var listaAleatorios = ordenadores.OrdenarPorSelecao(listaADesordenados);
 
             Console.WriteLine("");
             Console.Write("Lista Ordenada:");
@@ -29,14 +32,29 @@ namespace AlgoritmosDeOrdenacao
             {
                 Console.Write(" "+listaAleatorios[i] + ",");
             }
-
-            
-           
-
-            // Console.WriteLine("lista Ordenada:" + ordenar.Selection_Sorte(listaTest.desordenados) + "/n" + "Desordenados:" + listaTest.desordenados);
+            Console.WriteLine("________________________________________________________________");
 
 
-            // Console.WriteLine("Hello, World!");
+
+            Console.WriteLine("--Lista simples--");
+            Console.Write("Lista Desordenada:");
+
+            for (int i = 0; i < contadorS; i++)
+            {
+                Console.Write(" " + lista_simples[i] + ",");
+            }
+
+            Console.WriteLine("");
+            Console.Write("Lista Ordenada:");
+            for (int i = 0; i < contadorS; i++)
+            {
+                Console.Write(" " + lista_simples[i] + ",");
+            }
+            Console.WriteLine("________________________________________________________________");
+
+
+
+
         }
     }
 }
