@@ -9,10 +9,10 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AlgoritmosDeOrdenacao.Code.Funcoes
 {
-    public class Ordenadores
+    public static class Ordenadores
     {
        
-        public List<int> OrdenarPorSelecao(List<int> numeros)
+        public static List<int> OrdenarPorSelecao(List<int> numeros)
         {
             // O OrdenarPorSelecao percorre toda a lista e encontra o menor numero e guarda sua posição,
             // em seguida troca a posição do numero maior pelo menor, percorrendo da posição [0] ate [n -1],
@@ -39,7 +39,7 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
             }
             return numeros;
         }
-        public List<int> OrdenacaoPorBolha(List<int> numeros)
+        public static List<int> OrdenacaoPorBolha(List<int> numeros)
         {
             // O OrdenacaoPorBolha ordena seus itens percorrendo a lista
             // e comparando seu item na posiçao atual selecionada com a posiçao posterior

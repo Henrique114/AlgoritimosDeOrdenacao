@@ -9,10 +9,10 @@ namespace AlgoritmosDeOrdenacao.teste
         {
             //Arrenge
             List<int> list = new List<int> {3,5,4,1,8,6};
-            var selectionSort = new Ordenadores();
+            
 
             //act
-            var lista = selectionSort.OrdenarPorSelecao(list);
+            var lista = Ordenadores.OrdenarPorSelecao(list);
 
             //Assert
             Assert.Equal(list, lista);

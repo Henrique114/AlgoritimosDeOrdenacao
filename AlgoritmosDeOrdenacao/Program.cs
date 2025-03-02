@@ -1,4 +1,5 @@
-﻿using AlgoritmosDeOrdenacao.Code.Funcoes;
+﻿using System.Linq;
+using AlgoritmosDeOrdenacao.Code.Funcoes;
 using AlgoritmosDeOrdenacao.Code.Listas;
 
 namespace AlgoritmosDeOrdenacao
@@ -7,31 +8,26 @@ namespace AlgoritmosDeOrdenacao
     {
         static void Main(string[] args)
         {
-            Ordenadores ordenadores = new();
-            ListasParaTeste listas_para_testes = new();
-
-            var listaADesordenados = listas_para_testes.DesordenadosAleatorios();
-            var contadorA = listaADesordenados.Count;
-
-            var lista_simples = listas_para_testes.desordenados;
-            var contadorS = lista_simples.Count;
+            var listaDesordenadosA = ListasParaTeste.DesordenadosAleatorios();
+            var contadorA = listaDesordenadosA.Count;
 
             Console.WriteLine("--Lista Aleatoria--");
             Console.Write("Lista Desordenada:");
 
             for (int i = 0; i < contadorA; i++)
             {
-                Console.Write(" " + listaADesordenados[i] + ",");
+                Console.Write(" " + listaDesordenadosA[i] + ",");
             }
 
-            var listaAleatorios = ordenadores.OrdenarPorSelecao(listaADesordenados);
+            var listaAleatorios = Ordenadores.OrdenarPorSelecao(listaDesordenadosA);
 
             Console.WriteLine("");
-            Console.Write("Lista Ordenada:");
+            Console.Write("Lista Ordenada:   ");
             for (int i = 0; i < contadorA;i++)
             {
                 Console.Write(" "+listaAleatorios[i] + ",");
             }
+            Console.WriteLine("");
             Console.WriteLine("________________________________________________________________");
 
 
@@ -39,17 +35,19 @@ namespace AlgoritmosDeOrdenacao
             Console.WriteLine("--Lista simples--");
             Console.Write("Lista Desordenada:");
 
-            for (int i = 0; i < contadorS; i++)
+            for (int i = 0; i < ListasParaTeste.desordenados.Count; i++)
             {
-                Console.Write(" " + lista_simples[i] + ",");
+                Console.Write(" " + ListasParaTeste.desordenados[i] + ",");
             }
 
+            var ordenarSimples = Ordenadores.OrdenarPorSelecao(ListasParaTeste.desordenados);
             Console.WriteLine("");
-            Console.Write("Lista Ordenada:");
-            for (int i = 0; i < contadorS; i++)
+            Console.Write("Lista Ordenada:   ");
+            for (int i = 0; i < ListasParaTeste.desordenados.Count; i++)
             {
-                Console.Write(" " + lista_simples[i] + ",");
+                Console.Write(" " + ListasParaTeste.desordenados[i] + ",");
             }
+            Console.WriteLine("");
             Console.WriteLine("________________________________________________________________");
 
 
