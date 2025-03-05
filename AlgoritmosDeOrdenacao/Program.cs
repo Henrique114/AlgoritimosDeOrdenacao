@@ -9,23 +9,21 @@ namespace AlgoritmosDeOrdenacao
         static void Main(string[] args)
         {
             var listaDesordenadosA = ListasParaTeste.DesordenadosAleatorios();
-            var contadorA = listaDesordenadosA.Count;
-
             Console.WriteLine("--Lista Aleatoria--");
             Console.Write("Lista Desordenada:");
 
-            for (int i = 0; i < contadorA; i++)
+            for (int i = 0; i < listaDesordenadosA.Count; i++)
             {
                 Console.Write(" " + listaDesordenadosA[i] + ",");
             }
 
-            var listaAleatorios = Ordenadores.OrdenarPorSelecao(listaDesordenadosA);
+            var OrdenadosA = Ordenadores.OrdenarPorSelecao(listaDesordenadosA);
 
             Console.WriteLine("");
             Console.Write("Lista Ordenada:   ");
-            for (int i = 0; i < contadorA;i++)
+            for (int i = 0; i < listaDesordenadosA.Count; i++)
             {
-                Console.Write(" "+listaAleatorios[i] + ",");
+                Console.Write(" "+OrdenadosA[i] + ",");
             }
             Console.WriteLine("");
             Console.WriteLine("________________________________________________________________");

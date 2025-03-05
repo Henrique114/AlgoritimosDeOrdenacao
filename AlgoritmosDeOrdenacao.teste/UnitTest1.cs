@@ -5,17 +5,17 @@ namespace AlgoritmosDeOrdenacao.teste
     public class UnitTest1
     {
         [Fact]
-        public void ordenacao_crescente_uma_lista_354186_deve_retornar_134568()
+        public void ordenacaoCrescenteUmaLista354186DeveRetornar134568()
         {
             //Arrenge
-            List<int> list = new List<int> {3,5,4,1,8,6};
+            List<int> numeros = [3,5,4,1,8,6];
             
 
             //act
-            var lista = Ordenadores.OrdenarPorSelecao(list);
+            var numeros_ordenados = Ordenadores.OrdenarPorSelecao(numeros);
 
             //Assert
-            Assert.Equal(list, lista);
+            Assert.Equal(numeros, numeros_ordenados);
         }
     }
 }
