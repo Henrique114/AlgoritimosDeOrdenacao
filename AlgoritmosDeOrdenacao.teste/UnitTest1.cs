@@ -13,7 +13,7 @@ namespace AlgoritmosDeOrdenacao.teste
 
             //act
             var numeros_ordenados = Ordenadores.OrdenarPorSelecao(numeros);
-
+            
             //Assert
             Assert.Equal(numeros, numeros_ordenados);
         }
