@@ -17,7 +17,7 @@ namespace AlgoritmosDeOrdenacao
                 Console.Write(" " + listaDesordenadosA[i] + ",");
             }
 
-            var OrdenadosA = Ordenadores.OrdenarPorInsercao(listaDesordenadosA);
+            var OrdenadosA = Ordenadores.OrdenarPorSelecao(listaDesordenadosA);
 
             Console.WriteLine("");
             Console.Write("Lista Ordenada:   ");
@@ -38,7 +38,7 @@ namespace AlgoritmosDeOrdenacao
                 Console.Write(" " + ListasParaTeste.desordenados[i] + ",");
             }
 
-            var ordenarSimples = Ordenadores.OrdenarPorInsercao(ListasParaTeste.desordenados);
+            var ordenarSimples = Ordenadores.OrdenarPorSelecao(ListasParaTeste.desordenados);
             Console.WriteLine("");
             Console.Write("Lista Ordenada:   ");
             for (int i = 0; i < ordenarSimples.Count; i++)

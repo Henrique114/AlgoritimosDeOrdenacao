@@ -63,9 +63,9 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
             return numeros;
         }
 
-        public static List<int> OrdenarPorInsercao(List<int> numeros)
+        public static int[] OrdenarPorselecao(int[] numeros)
         {
-            for (int i = 1; i < numeros.Count; i++)
+            for (int i = 1; i < numeros.Length; i++)
             {
                 var chave = numeros[i];
                 var j = i - 1;
@@ -80,5 +80,7 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
 
             return numeros;
         }
+
+    
     }
 }
