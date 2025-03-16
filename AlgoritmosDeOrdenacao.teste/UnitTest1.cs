@@ -30,7 +30,7 @@ namespace AlgoritmosDeOrdenacao.teste
             var nOrdenadosEsperados = numerosOrdenadosEsperados;
 
             //Act 
-            var rOrdenados = Ordenadores.OrdenarPorselecao(n);
+            var rOrdenados = Ordenadores.OrdenarPorInsercao(n);
 
 
             //Assert

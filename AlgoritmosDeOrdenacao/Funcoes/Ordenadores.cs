@@ -63,7 +63,7 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
             return numeros;
         }
 
-        public static int[] OrdenarPorselecao(int[] numeros)
+        public static int[] OrdenarPorInsercao(int[] numeros)
         {
             for (int i = 1; i < numeros.Length; i++)
             {
