@@ -62,5 +62,23 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
 
             return numeros;
         }
+
+        public static List<int> OrdenarPorInsercao(List<int> numeros)
+        {
+            for (int i = 1; i < numeros.Count; i++)
+            {
+                var chave = numeros[i];
+                var j = i - 1;
+                while (j >= 0 && numeros[j] > chave) 
+                {
+                    numeros[j+1] = numeros[j];
+                    j = j - 1;
+                    
+                }
+                numeros[j + 1] = chave;
+            }
+
+            return numeros;
+        }
     }
 }
