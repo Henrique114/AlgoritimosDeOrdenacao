@@ -26,15 +26,13 @@ namespace AlgoritmosDeOrdenacao.teste
         public void OrdenarNumerosEmOrdemCresComIsercao(int[] numeros, int[] numerosOrdenadosEsperados) 
         {
             //Arrenge
-            var n = numeros;
-            var nOrdenadosEsperados = numerosOrdenadosEsperados;
-
+           
             //Act 
-            var rOrdenados = Ordenadores.OrdenarPorInsercao(n);
+            var rOrdenados = Ordenadores.OrdenarPorInsercao(numeros);
 
 
             //Assert
-            Assert.Equal(nOrdenadosEsperados, rOrdenados);
+            Assert.Equal(numerosOrdenadosEsperados, rOrdenados);
         
         }
     }
