@@ -46,17 +46,19 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
 
             var quantidadeElementos = numeros.Count;
             // repete a iteraçao por cada item
-           for(int j = 1; j < quantidadeElementos; j ++)
-
-            // percorre a lista 
-            for (int i = 0; i < quantidadeElementos - 1; i++)
+            for (int j = 1; j < quantidadeElementos; j++)
             {
-                //troca a posição dos itens caso o iten posterior seja menor, criando assim uma ordem crescente.
-                if (numeros[i] > numeros[i + 1])
+
+                // percorre a lista 
+                for (int i = 0; i < quantidadeElementos - 1; i++)
                 {
-                    var aux = numeros[i];
-                    numeros[i] = numeros[i + 1];
-                    numeros[i + 1] = aux;
+                    //troca a posição dos itens caso o iten posterior seja menor, criando assim uma ordem crescente.
+                    if (numeros[i] > numeros[i + 1])
+                    {
+                        var aux = numeros[i];
+                        numeros[i] = numeros[i + 1];
+                        numeros[i + 1] = aux;
+                    }
                 }
             }
 
@@ -65,6 +67,8 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
 
         public static int[] OrdenarPorInsercao(int[] numeros)
         {
+            //Esta ordenação consiste em comparar cada item inserido com os anteriores
+            //verificando se os anteriores são maiores e mudando caso o resultado for verdadeiro.
             for (int i = 1; i < numeros.Length; i++)
             {
                 var chave = numeros[i];
@@ -81,6 +85,65 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
             return numeros;
         }
 
-    
+        public static int[] OrdenarPorFusão(int[] numeros, int inicio = 0, int fim = 0)
+        {
+            if (fim == 0)
+            {
+                fim = numeros.Length;
+            }
+            if (fim - inicio > 1)
+            {
+                var meio = (fim + inicio) / 2;
+                OrdenarPorFusão(numeros, inicio, meio);
+                OrdenarPorFusão(numeros, meio, fim);
+                Merge(numeros, inicio, meio, fim);
+
+
+
+              
+
+
+            }
+           
+            return numeros;     
+
+
+        }
+        public static void Merge(int[] numeros, int inicio, int meio, int fim)
+        {
+            var esquerda = numeros[..meio];
+            var direita = numeros[meio..];
+            var topo_direita = 0;
+            var topo_esquerda = 0;
+
+            for (int i = inicio; i <= fim; i++)
+            {
+                if (topo_esquerda >= esquerda.Length)
+                {
+                    numeros[i] = esquerda[topo_esquerda];
+                    topo_esquerda = topo_esquerda + 1;
+                }
+                if (topo_direita >= direita.Length)
+                {
+                    numeros[i] = direita[topo_direita];
+                    topo_direita = topo_direita + 1;
+                }
+                if (esquerda[topo_esquerda] < direita[topo_direita])
+                {
+                    numeros[i] = esquerda[topo_esquerda];
+                    topo_esquerda = topo_esquerda + 1;
+                }
+                else {
+                    numeros[i] = direita[topo_direita];
+                    topo_direita = topo_direita + 1;
+                
+                }
+            }
+
+
+
+        }
+
+
     }
 }

@@ -12,16 +12,16 @@ namespace AlgoritmosDeOrdenacao
             Console.WriteLine("--Lista Aleatoria--");
             Console.Write("Lista Desordenada:");
 
-            for (int i = 0; i < listaDesordenadosA.Count; i++)
+            for (int i = 0; i < listaDesordenadosA.Length; i++)
             {
                 Console.Write(" " + listaDesordenadosA[i] + ",");
             }
 
-            var OrdenadosA = Ordenadores.OrdenarPorSelecao(listaDesordenadosA);
+            var OrdenadosA = Ordenadores.OrdenarPorFusão(listaDesordenadosA);
 
             Console.WriteLine("");
             Console.Write("Lista Ordenada:   ");
-            for (int i = 0; i < listaDesordenadosA.Count; i++)
+            for (int i = 0; i < listaDesordenadosA.Length; i++)
             {
                 Console.Write(" "+OrdenadosA[i] + ",");
             }
@@ -33,15 +33,15 @@ namespace AlgoritmosDeOrdenacao
             Console.WriteLine("--Lista simples--");
             Console.Write("Lista Desordenada:");
 
-            for (int i = 0; i < ListasParaTeste.desordenados.Count; i++)
+            for (int i = 0; i < ListasParaTeste.desordenados.Length; i++)
             {
                 Console.Write(" " + ListasParaTeste.desordenados[i] + ",");
             }
 
-            var ordenarSimples = Ordenadores.OrdenarPorSelecao(ListasParaTeste.desordenados);
+            var ordenarSimples = Ordenadores.OrdenarPorFusão(ListasParaTeste.desordenados);
             Console.WriteLine("");
             Console.Write("Lista Ordenada:   ");
-            for (int i = 0; i < ordenarSimples.Count; i++)
+            for (int i = 0; i < ordenarSimples.Length; i++)
             {
                 Console.Write(" " + ordenarSimples[i] + ",");
             }
