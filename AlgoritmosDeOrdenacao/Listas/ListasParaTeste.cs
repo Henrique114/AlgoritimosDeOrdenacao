@@ -8,6 +8,7 @@ namespace AlgoritmosDeOrdenacao.Code.Listas
 {
     public static class ListasParaTeste
     {
+        
 
         // Listas para testes
         // - numeros desordenados:
@@ -20,6 +21,8 @@ namespace AlgoritmosDeOrdenacao.Code.Listas
         public static int[] ordenadosDecrescente = { 90, 80, 77, 55, 44, 40, 35, 33, 20, 10, 1 };
 
         // - numeros desordenados aleatorios:
+
+        public static int[] oDesordenadosAleatorios = DesordenadosAleatorios();
         public static int[] DesordenadosAleatorios()
         {
             Random aleatorios = new();
@@ -32,6 +35,7 @@ namespace AlgoritmosDeOrdenacao.Code.Listas
 
             return numeros;
         }
+
 
     }
 }

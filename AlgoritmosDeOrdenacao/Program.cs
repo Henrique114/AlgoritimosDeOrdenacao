@@ -8,22 +8,22 @@ namespace AlgoritmosDeOrdenacao
     {
         static void Main(string[] args)
         {
-            var listaDesordenadosA = ListasParaTeste.DesordenadosAleatorios();
+            
             Console.WriteLine("--Lista Aleatoria--");
             Console.Write("Lista Desordenada:");
 
-            for (int i = 0; i < listaDesordenadosA.Length; i++)
+            for (int i = 0; i < ListasParaTeste.oDesordenadosAleatorios.Length; i++)
             {
-                Console.Write(" " + listaDesordenadosA[i] + ",");
+                Console.Write(" " + ListasParaTeste.oDesordenadosAleatorios[i] + ",");
             }
 
-            var OrdenadosA = Ordenadores.OrdenarSeparandoEUnindo(listaDesordenadosA);
+            Ordenadores.OrdenarPorSelecao(ListasParaTeste.oDesordenadosAleatorios);
 
             Console.WriteLine("");
             Console.Write("Lista Ordenada:   ");
-            for (int i = 0; i < listaDesordenadosA.Length; i++)
+            for (int i = 0; i < ListasParaTeste.oDesordenadosAleatorios.Length; i++)
             {
-                Console.Write(" "+OrdenadosA[i] + ",");
+                Console.Write(" "+ ListasParaTeste.oDesordenadosAleatorios[i] + ",");
             }
             Console.WriteLine("");
             Console.WriteLine("________________________________________________________________");
@@ -38,12 +38,12 @@ namespace AlgoritmosDeOrdenacao
                 Console.Write(" " + ListasParaTeste.desordenados[i] + ",");
             }
 
-            var ordenarSimples = Ordenadores.OrdenarSeparandoEUnindo(ListasParaTeste.desordenados);
+            Ordenadores.OrdenarPorSelecao(ListasParaTeste.desordenados);
             Console.WriteLine("");
             Console.Write("Lista Ordenada:   ");
-            for (int i = 0; i < ordenarSimples.Length; i++)
+            for (int i = 0; i < ListasParaTeste.desordenados.Length; i++)
             {
-                Console.Write(" " + ordenarSimples[i] + ",");
+                Console.Write(" " + ListasParaTeste.desordenados[i] + ",");
             }
             Console.WriteLine("");
             Console.WriteLine("________________________________________________________________");

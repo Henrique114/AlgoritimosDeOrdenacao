@@ -12,12 +12,12 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
     public static class Ordenadores
     {
        
-        public static List<int> OrdenarPorSelecao(List<int> numeros)
+        public static void OrdenarPorSelecao(int[] numeros)
         {
             // O OrdenarPorSelecao percorre toda a lista e encontra o menor numero e guarda sua posição,
             // em seguida troca a posição do numero maior pelo menor, percorrendo da posição [0] ate [n -1],
             // gerando assim uma ordenação crescente.
-            var n = numeros.Count;
+            var n = numeros.Length;
             for (int j = 0; j < n - 1; j++)
             {
                 var indicador_menor_numero = j;
@@ -37,7 +37,7 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
                     numeros[indicador_menor_numero] = aux;
                 }
             }
-            return numeros;
+          //  return numeros;
         }
         public static List<int> OrdenacaoPorBolha(List<int> numeros)
         {
@@ -143,6 +143,44 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
 
 
 
+        }
+
+        public static int[] OrdenacaoRapida(int[] numeros, int inicio = 0, int fim = 0)
+        {
+            if (fim == 0)
+            {
+                fim = numeros.Length - 1;
+            }
+            if (inicio < fim)
+            {
+
+                var p = Particao(numeros, inicio, fim);
+                OrdenacaoRapida(numeros, inicio, p - 1);
+                OrdenacaoRapida(numeros, p + 1, fim);
+            }
+
+            return numeros;
+        }
+        public static int Particao(int[] numeros, int inicio, int fim)
+        {
+            var pivor = numeros[fim];
+            var i = inicio;
+            for (int j=inicio; j < fim; j++ )
+            {
+
+                if (numeros[j] <= pivor)
+                {
+                    var aux = numeros[j];
+                    numeros[j] = numeros[i];
+                    numeros[i] = aux;
+                    i = i + 1;
+                }
+                var transporte = numeros[i];
+                numeros[i] = numeros[fim];
+                numeros[fim] = transporte;
+            }
+
+            return i;
         }
 
 
