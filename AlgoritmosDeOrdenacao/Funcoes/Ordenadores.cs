@@ -85,8 +85,13 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
             return numeros;
         }
 
-        public static int[] OrdenarPorFusão(int[] numeros, int inicio = 0, int fim = 0)
+        public static int[] OrdenarSeparandoEUnindo(int[] numeros, int inicio = 0, int fim = 0)
         {
+            // Diviidr em listas menores, duas por vez, gerando sempre uma bifurcaçao que sera entendida
+            // como lista da direita e lista da esquerda ate atingir um item por lista, apos isso, será
+            // unificada levando em conta o topo de cada lista, os quais serao comparados qual é o menor
+            // e assim sera inserido na lista retrocedendo as bifurcaçoes ate completar toda a lista já
+            // ordenada, neste caso crescente.
             if (fim == 0)
             {
                 fim = numeros.Length;
@@ -94,13 +99,9 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
             if (fim - inicio > 1)
             {
                 var meio = (fim + inicio) / 2;
-                OrdenarPorFusão(numeros, inicio, meio);
-                OrdenarPorFusão(numeros, meio, fim);
-                Merge(numeros, inicio, meio, fim);
-
-
-
-              
+                OrdenarSeparandoEUnindo(numeros, inicio, meio);
+                OrdenarSeparandoEUnindo(numeros, meio, fim);
+                Unir(numeros, inicio, meio, fim);
 
 
             }
@@ -109,26 +110,26 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
 
 
         }
-        public static void Merge(int[] numeros, int inicio, int meio, int fim)
+        public static void Unir(int[] numeros, int inicio, int meio, int fim)
         {
-            var esquerda = numeros[..meio];
-            var direita = numeros[meio..];
+            var esquerda = numeros[inicio..meio];
+            var direita = numeros[meio..fim];
             var topo_direita = 0;
             var topo_esquerda = 0;
 
-            for (int i = inicio; i <= fim; i++)
+            for (int i = inicio; i < fim; i++)
             {
                 if (topo_esquerda >= esquerda.Length)
-                {
-                    numeros[i] = esquerda[topo_esquerda];
-                    topo_esquerda = topo_esquerda + 1;
-                }
-                if (topo_direita >= direita.Length)
                 {
                     numeros[i] = direita[topo_direita];
                     topo_direita = topo_direita + 1;
                 }
-                if (esquerda[topo_esquerda] < direita[topo_direita])
+                else if (topo_direita >= direita.Length)
+                {
+                    numeros[i] = esquerda[topo_esquerda];
+                    topo_esquerda = topo_esquerda + 1;
+                }
+                else if (esquerda[topo_esquerda] < direita[topo_direita])
                 {
                     numeros[i] = esquerda[topo_esquerda];
                     topo_esquerda = topo_esquerda + 1;
