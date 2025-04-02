@@ -8,22 +8,22 @@ namespace AlgoritmosDeOrdenacao
     {
         static void Main(string[] args)
         {
-            var listaDesordenadosA = ListasParaTeste.DesordenadosAleatorios();
+            
             Console.WriteLine("--Lista Aleatoria--");
             Console.Write("Lista Desordenada:");
 
-            for (int i = 0; i < listaDesordenadosA.Count; i++)
+            for (int i = 0; i < ListasParaTeste.oDesordenadosAleatorios.Length; i++)
             {
-                Console.Write(" " + listaDesordenadosA[i] + ",");
+                Console.Write(" " + ListasParaTeste.oDesordenadosAleatorios[i] + ",");
             }
 
-            var OrdenadosA = Ordenadores.OrdenarPorSelecao(listaDesordenadosA);
+            Ordenador.Rapida(ListasParaTeste.oDesordenadosAleatorios);
 
             Console.WriteLine("");
             Console.Write("Lista Ordenada:   ");
-            for (int i = 0; i < listaDesordenadosA.Count; i++)
+            for (int i = 0; i < ListasParaTeste.oDesordenadosAleatorios.Length; i++)
             {
-                Console.Write(" "+OrdenadosA[i] + ",");
+                Console.Write(" "+ ListasParaTeste.oDesordenadosAleatorios[i] + ",");
             }
             Console.WriteLine("");
             Console.WriteLine("________________________________________________________________");
@@ -33,22 +33,20 @@ namespace AlgoritmosDeOrdenacao
             Console.WriteLine("--Lista simples--");
             Console.Write("Lista Desordenada:");
 
-            for (int i = 0; i < ListasParaTeste.desordenados.Count; i++)
+            for (int i = 0; i < ListasParaTeste.desordenados.Length; i++)
             {
                 Console.Write(" " + ListasParaTeste.desordenados[i] + ",");
             }
 
-            var ordenarSimples = Ordenadores.OrdenarPorSelecao(ListasParaTeste.desordenados);
+            Ordenador.Rapida(ListasParaTeste.desordenados);
             Console.WriteLine("");
             Console.Write("Lista Ordenada:   ");
-            for (int i = 0; i < ListasParaTeste.desordenados.Count; i++)
+            for (int i = 0; i < ListasParaTeste.desordenados.Length; i++)
             {
                 Console.Write(" " + ListasParaTeste.desordenados[i] + ",");
             }
             Console.WriteLine("");
             Console.WriteLine("________________________________________________________________");
-
-
 
 
         }
