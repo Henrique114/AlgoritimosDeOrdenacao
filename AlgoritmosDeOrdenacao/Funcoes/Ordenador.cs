@@ -9,10 +9,10 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AlgoritmosDeOrdenacao.Code.Funcoes
 {
-    public static class Ordenadores
+    public static class Ordenador
     {
        
-        public static void OrdenarPorSelecao(int[] numeros)
+        public static int[] PorSelecao(int[] numeros)
         {
             // O OrdenarPorSelecao percorre toda a lista e encontra o menor numero e guarda sua posição,
             // em seguida troca a posição do numero maior pelo menor, percorrendo da posição [0] ate [n -1],
@@ -37,9 +37,9 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
                     numeros[indicador_menor_numero] = aux;
                 }
             }
-          //  return numeros;
+            return numeros;
         }
-        public static List<int> OrdenacaoPorBolha(List<int> numeros)
+        public static List<int> PorBolha(List<int> numeros)
         {
             // O OrdenacaoPorBolha ordena seus itens percorrendo a lista
             // e comparando seu item na posiçao atual selecionada com a posiçao posterior
@@ -65,7 +65,7 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
             return numeros;
         }
 
-        public static int[] OrdenarPorInsercao(int[] numeros)
+        public static int[] PorInsercao(int[] numeros)
         {
             //Esta ordenação consiste em comparar cada item inserido com os anteriores
             //verificando se os anteriores são maiores e mudando caso o resultado for verdadeiro.
@@ -85,7 +85,7 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
             return numeros;
         }
 
-        public static int[] OrdenarSeparandoEUnindo(int[] numeros, int inicio = 0, int fim = 0)
+        public static int[] SeparandoEUnindo(int[] numeros, int inicio = 0, int fim = 0)
         {
             // Diviidr em listas menores, duas por vez, gerando sempre uma bifurcaçao que sera entendida
             // como lista da direita e lista da esquerda ate atingir um item por lista, apos isso, será
@@ -99,8 +99,8 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
             if (fim - inicio > 1)
             {
                 var meio = (fim + inicio) / 2;
-                OrdenarSeparandoEUnindo(numeros, inicio, meio);
-                OrdenarSeparandoEUnindo(numeros, meio, fim);
+                SeparandoEUnindo(numeros, inicio, meio);
+                SeparandoEUnindo(numeros, meio, fim);
                 Unir(numeros, inicio, meio, fim);
 
 
@@ -110,7 +110,7 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
 
 
         }
-        public static void Unir(int[] numeros, int inicio, int meio, int fim)
+        private static void Unir(int[] numeros, int inicio, int meio, int fim)
         {
             var esquerda = numeros[inicio..meio];
             var direita = numeros[meio..fim];
@@ -145,27 +145,28 @@ namespace AlgoritmosDeOrdenacao.Code.Funcoes
 
         }
 
-        public static int[] OrdenacaoRapida(int[] numeros, int inicio = 0, int fim = 0)
+        public static int[] Rapida(int[] numeros, int inicio = 0, int fim = 0)
         {
             if (fim == 0)
             {
-                fim = numeros.Length - 1;
+                fim = numeros.Length;
+                fim = fim - 1;
             }
             if (inicio < fim)
             {
 
                 var p = Particao(numeros, inicio, fim);
-                OrdenacaoRapida(numeros, inicio, p - 1);
-                OrdenacaoRapida(numeros, p + 1, fim);
+                Rapida(numeros, inicio, p - 1);
+                Rapida(numeros, p + 1, fim);
             }
 
             return numeros;
         }
-        public static int Particao(int[] numeros, int inicio, int fim)
+        private static int Particao(int[] numeros, int inicio, int fim)
         {
             var pivor = numeros[fim];
             var i = inicio;
-            for (int j=inicio; j < fim; j++ )
+            for (int j=inicio; j < fim - 1; j++ )
             {
 
                 if (numeros[j] <= pivor)
